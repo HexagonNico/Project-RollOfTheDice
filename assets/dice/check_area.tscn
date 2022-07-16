@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/dice/check_area.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 0.5, 0.5, 0.5 )
+extents = Vector3( 0.4, 0.4, 0.4 )
 
 [node name="CheckArea" type="Area"]
 script = ExtResource( 1 )

@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/levels/multiple_solution_level.gd" type="Script" id=1]
+[ext_resource path="res://assets/dice/dice_controller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/numbers/two.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/moves_counter/moves_counter_ui.tscn" type="PackedScene" id=5]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 11, 5 )
+center_offset = Vector3( 0, -1, 0 )
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 7, 9 )
+center_offset = Vector3( 0, -1, 0 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 4 )
+center_offset = Vector3( -2, -0.99, 3 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="PlaneMesh" id=5]
+material = SubResource( 6 )
+center_offset = Vector3( 2, -0.99, 3 )
+
+[node name="LevelScript" type="Timer"]
+script = ExtResource( 1 )
+dices = [ NodePath("DiceController"), NodePath("DiceController2") ]
+solved_positions = [ Vector3( -2, 0, 3 ), Vector3( 2, 0, 3 ) ]
+solved_faces = [ 2, 2 ]
+
+[node name="DiceController" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1 )
+
+[node name="Cube" parent="DiceController" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+
+[node name="CheckAreaLeft" parent="DiceController" index="6"]
+collision_mask = 5
+
+[node name="CheckAreaRight" parent="DiceController" index="7"]
+collision_mask = 5
+
+[node name="CheckAreaForward" parent="DiceController" index="8"]
+collision_mask = 5
+
+[node name="CheckAreaBack" parent="DiceController" index="9"]
+collision_mask = 5
+
+[node name="DiceController2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1 )
+
+[node name="Cube" parent="DiceController2" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+
+[node name="CubeArea" parent="DiceController2/Cube" index="6"]
+collision_layer = 4
+
+[node name="CheckAreaLeft" parent="DiceController2" index="6"]
+collision_mask = 3
+
+[node name="CheckAreaRight" parent="DiceController2" index="7"]
+collision_mask = 3
+
+[node name="CheckAreaForward" parent="DiceController2" index="8"]
+collision_mask = 3
+
+[node name="CheckAreaBack" parent="DiceController2" index="9"]
+collision_mask = 3
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 5 )
+
+[node name="Terrain" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Terrain"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Terrain"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Terrain"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="Terrain"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MovesCounterUI" parent="CanvasLayer" instance=ExtResource( 5 )]
+
+[editable path="DiceController"]
+[editable path="DiceController2"]

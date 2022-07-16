@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "MovesCounterUI",
 "language": "GDScript",
 "path": "res://assets/ui/moves_counter/moves_counter_ui.gd"
+}, {
+"base": "Timer",
+"class": "MultipleSolutionLevel",
+"language": "GDScript",
+"path": "res://assets/levels/multiple_solution_level.gd"
 } ]
 _global_script_class_icons={
 "AutoDice": "",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "DiceController": "",
 "LevelScript": "",
 "MainMenu": "",
-"MovesCounterUI": ""
+"MovesCounterUI": "",
+"MultipleSolutionLevel": ""
 }
 
 [application]
