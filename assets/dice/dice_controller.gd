@@ -1,4 +1,3 @@
-tool
 class_name DiceController
 extends Spatial
 
@@ -32,7 +31,7 @@ onready var faces = [
 
 
 func _input(event):
-	if not Engine.editor_hint and not moving:
+	if not moving:
 		if event.is_action_pressed("ui_left") and self.translation.x > limit_left:
 			self.start_move(left_pivot, Vector3(0, 0, 90))
 		elif event.is_action_pressed("ui_right") and self.translation.x < limit_right:
@@ -45,8 +44,8 @@ func _input(event):
 
 func start_move(pivot, angle):
 	self.remove_child(cube)
-	pivot.add_child(cube)
 	cube.translation = -pivot.translation
+	pivot.add_child(cube)
 	tween.interpolate_property(pivot, "rotation_degrees", Vector3.ZERO, angle, 0.5)
 	tween.start()
 	self.moving = true

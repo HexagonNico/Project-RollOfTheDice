@@ -9,11 +9,11 @@
 size = Vector2( 7, 7 )
 center_offset = Vector3( 0, -1, 0 )
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=4]
 albedo_texture = ExtResource( 3 )
 
 [sub_resource type="PlaneMesh" id=3]
-material = SubResource( 2 )
+material = SubResource( 4 )
 center_offset = Vector3( 0, -0.99, 0 )
 
 [node name="FirstLevel" type="Timer"]

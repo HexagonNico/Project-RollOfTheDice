@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "DiceController",
+"class": "AutoDice",
+"language": "GDScript",
+"path": "res://assets/dice/auto_dice.gd"
+}, {
 "base": "Spatial",
 "class": "DiceController",
 "language": "GDScript",
@@ -18,16 +23,23 @@ _global_script_classes=[ {
 "class": "LevelScript",
 "language": "GDScript",
 "path": "res://assets/levels/level_script.gd"
+}, {
+"base": "Control",
+"class": "MainMenu",
+"language": "GDScript",
+"path": "res://assets/ui/main_menu/main_menu.gd"
 } ]
 _global_script_class_icons={
+"AutoDice": "",
 "DiceController": "",
-"LevelScript": ""
+"LevelScript": "",
+"MainMenu": ""
 }
 
 [application]
 
 config/name="Roll Of The Dice 2"
-run/main_scene="res://assets/levels/first_level.tscn"
+run/main_scene="res://assets/title_screen/title_screen.tscn"
 config/icon="res://icon.png"
 
 [physics]

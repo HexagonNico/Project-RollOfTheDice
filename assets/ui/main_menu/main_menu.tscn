@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/ui/theme/kenneyUI-blue.tres" type="Theme" id=1]
+[ext_resource path="res://assets/ui/theme/kenvector_future.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/ui/main_menu/main_menu.gd" type="Script" id=3]
+[ext_resource path="res://assets/levels/first_level.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+first_level = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 176.0
+margin_top = 190.0
+margin_right = 848.0
+margin_bottom = 410.0
+custom_constants/separation = 32
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 672.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 1 )
+text = "The Architect's Dice"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_left = 261.0
+margin_top = 86.0
+margin_right = 411.0
+margin_bottom = 220.0
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 150.0
+margin_bottom = 42.251
+text = "Play"
+
+[node name="HowToPlayButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 150.324
+margin_bottom = 88.251
+text = "How to play"
+
+[node name="CreditsButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 150.0
+margin_bottom = 134.251
+text = "Credits"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play"]

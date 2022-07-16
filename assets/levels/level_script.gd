@@ -26,4 +26,4 @@ func _on_move_finished():
 
 func _on_timeout():
 	if next_level:
-		get_tree().change_scene_to(next_level)
+		assert(get_tree().change_scene_to(next_level) == OK)
