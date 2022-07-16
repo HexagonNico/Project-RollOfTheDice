@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/levels/level_script.gd" type="Script" id=1]
+[ext_resource path="res://assets/dice/dice_controller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/numbers/four.png" type="Texture" id=3]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 11, 9 )
+center_offset = Vector3( 0, -1, 0 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 2 )
+center_offset = Vector3( 0, -0.99, 1 )
+
+[node name="SecondLevel" type="Timer"]
+script = ExtResource( 1 )
+solved_position = Vector3( 0, 0, 1 )
+solved_face = 4
+
+[node name="DiceController" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+limit_left = -4
+limit_right = 4
+limit_up = -3
+limit_down = 3
+
+[node name="Cube" parent="DiceController" index="0"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 6 )
+
+[node name="Terrain" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Terrain"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Terrain"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[editable path="DiceController"]

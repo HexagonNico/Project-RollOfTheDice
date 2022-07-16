@@ -1,3 +1,4 @@
+tool
 class_name DiceController
 extends Spatial
 
@@ -31,7 +32,7 @@ onready var faces = [
 
 
 func _input(event):
-	if not moving:
+	if not Engine.editor_hint and not moving:
 		if event.is_action_pressed("ui_left") and self.translation.x > limit_left:
 			self.start_move(left_pivot, Vector3(0, 0, 90))
 		elif event.is_action_pressed("ui_right") and self.translation.x < limit_right:

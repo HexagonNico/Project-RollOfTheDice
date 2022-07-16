@@ -14,10 +14,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://assets/dice/dice_controller.gd"
 }, {
-"base": "Spatial",
+"base": "Timer",
 "class": "LevelScript",
 "language": "GDScript",
-"path": "res://assets/level_script.gd"
+"path": "res://assets/levels/level_script.gd"
 } ]
 _global_script_class_icons={
 "DiceController": "",
@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Roll Of The Dice 2"
-run/main_scene="res://assets/test.tscn"
+run/main_scene="res://assets/levels/first_level.tscn"
 config/icon="res://icon.png"
 
 [physics]
