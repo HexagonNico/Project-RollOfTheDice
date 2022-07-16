@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "MainMenu",
 "language": "GDScript",
 "path": "res://assets/ui/main_menu/main_menu.gd"
+}, {
+"base": "Control",
+"class": "MovesCounterUI",
+"language": "GDScript",
+"path": "res://assets/ui/moves_counter/moves_counter_ui.gd"
 } ]
 _global_script_class_icons={
 "AutoDice": "",
 "CheckArea": "",
 "DiceController": "",
 "LevelScript": "",
-"MainMenu": ""
+"MainMenu": "",
+"MovesCounterUI": ""
 }
 
 [application]

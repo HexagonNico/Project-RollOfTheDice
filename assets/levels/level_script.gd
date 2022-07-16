@@ -17,6 +17,11 @@ func _ready():
 		assert(dice_controller.connect("move_finished", self, "_on_move_finished") == OK)
 
 
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		assert(get_tree().reload_current_scene() == OK)
+
+
 func _on_move_finished():
 	if dice_controller is DiceController:
 		if dice_controller.translation == solved_position and dice_controller.compute_up_face() == 7 - solved_face:

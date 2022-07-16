@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/levels/level_script.gd" type="Script" id=1]
 [ext_resource path="res://assets/dice/dice_controller.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/numbers/six.png" type="Texture" id=3]
 [ext_resource path="res://assets/levels/second_level.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui/moves_counter/moves_counter_ui.tscn" type="PackedScene" id=5]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 7, 7 )
@@ -62,3 +63,7 @@ shape = SubResource( 6 )
 [node name="CollisionShape4" type="CollisionShape" parent="Terrain/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
 shape = SubResource( 6 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MovesCounterUI" parent="CanvasLayer" instance=ExtResource( 5 )]

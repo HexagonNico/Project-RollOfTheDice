@@ -54,6 +54,7 @@ func start_move(pivot, angle):
 	tween.interpolate_property(pivot, "rotation_degrees", Vector3.ZERO, angle, 0.5)
 	tween.start()
 	moving_delay = 0.55
+	get_tree().call_group("moves_counter_ui", "increase_count")
 
 
 func _on_tween_completed(object, _key):
