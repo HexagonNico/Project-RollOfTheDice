@@ -4,7 +4,7 @@ extends Spatial
 
 signal move_finished
 
-var moving = false
+var moving_delay = 0.0
 
 onready var cube = $Cube
 
@@ -31,7 +31,7 @@ onready var check_area_back = $CheckAreaBack
 
 
 func _input(event):
-	if not moving:
+	if moving_delay == 0.0:
 		if event.is_action_pressed("ui_left") and not check_area_left.colliding:
 			self.start_move(left_pivot, Vector3(0, 0, 90))
 		elif event.is_action_pressed("ui_right") and not check_area_right.colliding:
@@ -42,13 +42,18 @@ func _input(event):
 			self.start_move(forward_pivot, Vector3(90, 0, 0))
 
 
+func _process(delta):
+	if moving_delay > 0.0:
+		moving_delay = max(moving_delay - delta, 0.0)
+
+
 func start_move(pivot, angle):
 	self.remove_child(cube)
 	cube.translation = -pivot.translation
 	pivot.add_child(cube)
 	tween.interpolate_property(pivot, "rotation_degrees", Vector3.ZERO, angle, 0.5)
 	tween.start()
-	self.moving = true
+	moving_delay = 0.55
 
 
 func _on_tween_completed(object, _key):
@@ -72,7 +77,6 @@ func finish_move(pivot, direction):
 	cube.translation = Vector3.ZERO
 	self.translate(direction * 2)
 	self.add_child(cube)
-	self.moving = false
 
 
 func compute_up_face() -> int:

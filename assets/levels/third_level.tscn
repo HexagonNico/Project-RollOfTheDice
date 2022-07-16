@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/levels/level_script.gd" type="Script" id=1]
 [ext_resource path="res://assets/dice/dice_controller.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/numbers/five.png" type="Texture" id=3]
+[ext_resource path="res://assets/levels/fourth_level.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 11, 7 )
@@ -37,6 +38,7 @@ extents = Vector3( 2.5, 1, 0.5 )
 script = ExtResource( 1 )
 solved_position = Vector3( 0, 0, 3 )
 solved_face = 5
+next_level = ExtResource( 4 )
 
 [node name="DiceController" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3 )

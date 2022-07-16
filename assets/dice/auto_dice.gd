@@ -13,7 +13,7 @@ func _ready():
 
 
 func _process(_delta):
-	self.moving = true
+	moving_delay = 1.0
 
 
 func _on_timeout():
