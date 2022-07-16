@@ -4,11 +4,6 @@ extends Spatial
 
 signal move_finished
 
-export(int) var limit_left = -100
-export(int) var limit_right = 100
-export(int) var limit_up = -100
-export(int) var limit_down = 100
-
 var moving = false
 
 onready var cube = $Cube
@@ -29,16 +24,21 @@ onready var faces = [
 	$Cube/FaceSix
 ]
 
+onready var check_area_left = $CheckAreaLeft
+onready var check_area_right = $CheckAreaRight
+onready var check_area_forward = $CheckAreaForward
+onready var check_area_back = $CheckAreaBack
+
 
 func _input(event):
 	if not moving:
-		if event.is_action_pressed("ui_left") and self.translation.x > limit_left:
+		if event.is_action_pressed("ui_left") and not check_area_left.colliding:
 			self.start_move(left_pivot, Vector3(0, 0, 90))
-		elif event.is_action_pressed("ui_right") and self.translation.x < limit_right:
+		elif event.is_action_pressed("ui_right") and not check_area_right.colliding:
 			self.start_move(right_pivot, Vector3(0, 0, -90))
-		elif event.is_action_pressed("ui_up") and self.translation.z > limit_up:
+		elif event.is_action_pressed("ui_up") and not check_area_back.colliding:
 			self.start_move(back_pivot, Vector3(-90, 0, 0))
-		elif event.is_action_pressed("ui_down") and self.translation.z < limit_down:
+		elif event.is_action_pressed("ui_down") and not check_area_forward.colliding:
 			self.start_move(forward_pivot, Vector3(90, 0, 0))
 
 
