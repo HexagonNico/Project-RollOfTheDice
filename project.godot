@@ -54,6 +54,10 @@ config/name="Roll Of The Dice 2"
 run/main_scene="res://assets/title_screen/title_screen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MusicPlayer="*res://assets/music/music_player.tscn"
+
 [physics]
 
 common/enable_pause_aware_picking=true

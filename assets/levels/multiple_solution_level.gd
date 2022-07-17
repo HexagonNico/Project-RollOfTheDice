@@ -40,3 +40,6 @@ func _on_timeout():
 		assert(get_tree().change_scene_to(next_level) == OK)
 	else:
 		assert(get_tree().change_scene("res://assets/title_screen/title_screen.tscn") == OK)
+		var file = File.new()
+		file.open("user://completed", File.WRITE)
+		file.close()
