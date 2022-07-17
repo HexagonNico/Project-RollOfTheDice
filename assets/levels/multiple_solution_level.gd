@@ -38,3 +38,5 @@ func _on_move_finished(dice: DiceController):
 func _on_timeout():
 	if next_level:
 		assert(get_tree().change_scene_to(next_level) == OK)
+	else:
+		assert(get_tree().change_scene("res://assets/title_screen/title_screen.tscn") == OK)
