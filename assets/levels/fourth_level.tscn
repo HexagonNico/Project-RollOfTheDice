@@ -68,6 +68,11 @@ shape = SubResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
 shape = SubResource( 8 )
 
+[node name="OmniLight" type="OmniLight" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, -5 )
+shadow_enabled = true
+omni_range = 15.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MovesCounterUI" parent="CanvasLayer" instance=ExtResource( 4 )]

@@ -39,3 +39,8 @@ shape = SubResource( 4 )
 [node name="CollisionShape4" type="CollisionShape" parent="Terrain/Area"]
 transform = Transform( 7.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -8 )
 shape = SubResource( 4 )
+
+[node name="OmniLight" type="OmniLight" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 5, -4 )
+shadow_enabled = true
+omni_range = 20.0
