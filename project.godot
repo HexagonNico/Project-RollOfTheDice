@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "DiceController",
-"class": "AutoDice",
-"language": "GDScript",
-"path": "res://assets/dice/auto_dice.gd"
-}, {
 "base": "Area",
 "class": "CheckArea",
 "language": "GDScript",
@@ -45,7 +40,6 @@ _global_script_classes=[ {
 "path": "res://assets/levels/multiple_solution_level.gd"
 } ]
 _global_script_class_icons={
-"AutoDice": "",
 "CheckArea": "",
 "DiceController": "",
 "LevelScript": "",
