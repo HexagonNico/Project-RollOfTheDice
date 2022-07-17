@@ -1,12 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/ui/theme/kenneyUI.tres" type="Theme" id=1]
+[ext_resource path="res://assets/ui/theme/theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/ui/moves_counter/moves_counter_ui.gd" type="Script" id=2]
-[ext_resource path="res://assets/ui/theme/kenvector_future.ttf" type="DynamicFontData" id=3]
-
-[sub_resource type="DynamicFont" id=1]
-size = 32
-font_data = ExtResource( 3 )
 
 [node name="MovesCounterUI" type="Control" groups=["moves_counter_ui"]]
 theme = ExtResource( 1 )
@@ -19,7 +14,6 @@ custom_constants/margin_left = 8
 [node name="Label" type="Label" parent="MarginContainer"]
 margin_left = 8.0
 margin_top = 4.0
-margin_right = 197.0
-margin_bottom = 40.0
-custom_fonts/font = SubResource( 1 )
+margin_right = 60.0
+margin_bottom = 18.0
 text = "Moves: 0"
