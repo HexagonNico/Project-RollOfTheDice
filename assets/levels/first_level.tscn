@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/levels/level_script.gd" type="Script" id=1]
 [ext_resource path="res://assets/dice/dice_controller.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/numbers/six.png" type="Texture" id=3]
 [ext_resource path="res://assets/levels/second_level.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/ui/moves_counter/moves_counter_ui.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/ui/theme/theme.tres" type="Theme" id=6]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 7, 7 )
@@ -83,3 +84,14 @@ draw_pass_1 = SubResource( 9 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MovesCounterUI" parent="CanvasLayer" instance=ExtResource( 5 )]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource( 6 )
+text = "Roll with the arrow keys
+Make the dice's '6' face lay on the '6'"

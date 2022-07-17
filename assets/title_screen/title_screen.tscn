@@ -70,6 +70,41 @@ toggle_mode = true
 text = " Mute audio"
 script = ExtResource( 3 )
 
+[node name="HowToPlayMenu" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HowToPlayMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HowToPlayMenu/CenterContainer"]
+margin_left = 10.0
+margin_top = 27.0
+margin_right = 245.0
+margin_bottom = 122.0
+custom_constants/separation = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/HowToPlayMenu/CenterContainer/VBoxContainer"]
+margin_right = 235.0
+margin_bottom = 65.0
+text = "Use the arrow keys to roll the dice
+
+Roll the dice until the correct face
+is laying on the number on the ground"
+align = 1
+valign = 1
+
+[node name="BackButton" type="Button" parent="CanvasLayer/HowToPlayMenu/CenterContainer/VBoxContainer"]
+margin_left = 103.0
+margin_top = 81.0
+margin_right = 131.0
+margin_bottom = 95.0
+size_flags_horizontal = 4
+text = "Back"
+
 [node name="CreditsMenu" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
@@ -108,15 +143,19 @@ valign = 1
 [node name="BackButton" type="Button" parent="CanvasLayer/CreditsMenu/CenterContainer/VBoxContainer"]
 margin_left = 78.0
 margin_top = 111.0
-margin_right = 127.324
-margin_bottom = 149.251
+margin_right = 106.0
+margin_bottom = 125.0
 size_flags_horizontal = 4
 text = "Back"
 
 [node name="DemoScene" parent="." instance=ExtResource( 2 )]
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/CenterContainer/VBoxContainer/VBoxContainer/PlayButton" to="CanvasLayer/MainMenu" method="_on_play"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/CenterContainer/VBoxContainer/VBoxContainer/HowToPlayButton" to="CanvasLayer/MainMenu" method="set_visible" binds= [ false ]]
+[connection signal="pressed" from="CanvasLayer/MainMenu/CenterContainer/VBoxContainer/VBoxContainer/HowToPlayButton" to="CanvasLayer/HowToPlayMenu" method="set_visible" binds= [ true ]]
 [connection signal="pressed" from="CanvasLayer/MainMenu/CenterContainer/VBoxContainer/VBoxContainer/CreditsButton" to="CanvasLayer/MainMenu" method="set_visible" binds= [ false ]]
 [connection signal="pressed" from="CanvasLayer/MainMenu/CenterContainer/VBoxContainer/VBoxContainer/CreditsButton" to="CanvasLayer/CreditsMenu" method="set_visible" binds= [ true ]]
+[connection signal="pressed" from="CanvasLayer/HowToPlayMenu/CenterContainer/VBoxContainer/BackButton" to="CanvasLayer/MainMenu" method="set_visible" binds= [ true ]]
+[connection signal="pressed" from="CanvasLayer/HowToPlayMenu/CenterContainer/VBoxContainer/BackButton" to="CanvasLayer/HowToPlayMenu" method="set_visible" binds= [ false ]]
 [connection signal="pressed" from="CanvasLayer/CreditsMenu/CenterContainer/VBoxContainer/BackButton" to="CanvasLayer/MainMenu" method="set_visible" binds= [ true ]]
 [connection signal="pressed" from="CanvasLayer/CreditsMenu/CenterContainer/VBoxContainer/BackButton" to="CanvasLayer/CreditsMenu" method="set_visible" binds= [ false ]]
