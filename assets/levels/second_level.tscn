@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/levels/level_script.gd" type="Script" id=1]
 [ext_resource path="res://assets/dice/dice_controller.tscn" type="PackedScene" id=2]
@@ -22,6 +22,13 @@ extents = Vector3( 0.5, 1, 4.5 )
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 5.5, 1, 0.5 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 10, 10, 10 )
+
+[sub_resource type="QuadMesh" id=7]
+size = Vector2( 0.1, 0.1 )
 
 [node name="SecondLevel" type="Timer"]
 script = ExtResource( 1 )
@@ -70,6 +77,10 @@ shape = SubResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, -5 )
 shadow_enabled = true
 omni_range = 15.0
+
+[node name="Particles" type="Particles" parent="Terrain"]
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 7 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

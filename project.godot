@@ -50,13 +50,17 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Roll Of The Dice 2"
+config/name="Architect's Dice"
 run/main_scene="res://assets/title_screen/title_screen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 MusicPlayer="*res://assets/music/music_player.tscn"
+
+[display]
+
+window/vsync/use_vsync=false
 
 [physics]
 
